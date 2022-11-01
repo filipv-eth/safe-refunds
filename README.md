@@ -6,7 +6,7 @@ Powered by the [Safe Transaction Service API](https://safe-transaction-mainnet.s
 
 ## Dependencies
 
-[Node.js](https://nodejs.org/en/) to run `safe-refunds`.
+[Node.js](https://nodejs.org/en/).
 
 ## Clone and Run
 
