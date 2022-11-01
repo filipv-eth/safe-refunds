@@ -1,14 +1,16 @@
 # safe-refunds
 
-Retrieves all of a Gnosis Safe's transactions and formats their nonce, execution status, transaction hashes, gas fees, executors, and execution dates as a csv.
+**safe-refunds** generates a CSV of a Gnosis Safe's executed transactions, executors, and gas fees.
 
 Powered by the [Safe Transaction Service API](https://safe-transaction-mainnet.safe.global/) and [Node.js](https://nodejs.org/en/).
 
 ## Dependencies
 
-You must have [Node.js](https://nodejs.org/en/) to run `safe-refunds`.
+[Node.js](https://nodejs.org/en/) to run `safe-refunds`.
 
 ## Clone and Run
+
+Install with:
 
 ```bash
 git clone https://github.com/filipv-eth/safe-refunds.git
@@ -17,6 +19,8 @@ git clone https://github.com/filipv-eth/safe-refunds.git
 ```bash
 cd juice-refunds
 ```
+
+And run with:
 
 ```bash
 node .
