@@ -4,7 +4,7 @@ const readline = require('readline');
 async function main() {
   const apiUrl = 'https://safe-transaction-mainnet.safe.global/api';
 
-  let address = `${(await question('Safe address? '))}`;
+  let address = `${(await question('Safe address (checksum)? '))}`;
   // const address = "0xAF28bcB48C40dBC86f52D459A6562F658fc94B1e"
 
   // Parse general safe information
@@ -22,14 +22,14 @@ async function main() {
 
   // Push fields into output, then fetch next page
   let output = [];
-  while(transactions.next !== null) {
+  while(true) {
     console.log(`Processing ${transactions.results.length} transactions . . .`);
     for(let { nonce, isExecuted, transactionHash, fee, executor, executionDate } of transactions.results) {
-      fee /= 1000000000000000000;
-      output.push({ nonce, isExecuted, transactionHash, fee, executor, executionDate });
+      output.push({ nonce, isExecuted, transactionHash, fee: fee / 1e18, executor, executionDate });
     }
+    if(!transactions.next) { break; }
     transactions = await apifetch(`${transactions.next}`);
-  }
+  } 
 
   // Write to disc
   writecsv("./output.csv", array2csv(output));
